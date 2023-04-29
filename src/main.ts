@@ -1,3 +1,5 @@
-import "./style.css";
+import { inicializaAplicacion } from "./ui";
 
-console.log("Hello Typescript!");
+document.addEventListener("DOMContentLoaded", () => {
+  inicializaAplicacion();
+});

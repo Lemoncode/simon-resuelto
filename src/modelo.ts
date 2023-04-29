@@ -9,7 +9,7 @@ export interface Partida {
   estado: estadoPartida;
 }
 
-export const crearPartidaInicial = () => ({
+export const crearPartidaInicial = () : Partida => ({
   ronda: 0,
   notas: [],
   notasUsuario: [],
