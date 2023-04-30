@@ -1,15 +1,15 @@
-type teclas = "azul" | "rojo" | "verde" | "amarillo";
+export type Tecla = "azul" | "rojo" | "verde" | "amarillo";
 
-type estadoPartida = "no_arrancada" | "jugando" | "game_over";
+type EstadoPartida = "no_arrancada" | "jugando" | "game_over";
 
 export interface Partida {
   ronda: number;
-  notas: teclas[];
-  notasUsuario: teclas[];
-  estado: estadoPartida;
+  notas: Tecla[];
+  notasUsuario: Tecla[];
+  estado: EstadoPartida;
 }
 
-export const crearPartidaInicial = () : Partida => ({
+export const crearPartidaInicial = (): Partida => ({
   ronda: 0,
   notas: [],
   notasUsuario: [],
