@@ -1,0 +1,53 @@
+.tablero {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #000;
+  border: 10px solid black;
+}
+
+.tablero::after {
+  box-sizing: border-box;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  background-color: #494738;
+  border: 5px solid black;
+}
+
+.sector {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(49% 49%, 0 49%, 0 0, 49% 0);
+  background-color: #00dad7;
+}
+
+.sector-1 {
+  background-color: #00dad7;
+  transform: rotate(0deg);
+}
+
+.sector-2 {
+  background-color: #f88f70;
+  transform: rotate(90deg);
+}
+
+.sector-3 {
+  background-color: #008d54;
+  transform: rotate(180deg);
+}
+
+.sector-4 {
+  background-color: #d9d900;
+  transform: rotate(270deg);
+}

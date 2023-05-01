@@ -14,3 +14,11 @@ export const generaSecuenciaMusical = (numeroDeNotas: number): Tecla[] => {
   );
   return notas;
 };
+
+// TODO: añadir pruebas unitarias
+export const arrancaPartida = (partida: Partida) => {
+  partida.estado = "jugando";
+  partida.notas = generaSecuenciaMusical(1);
+  partida.ronda = 1;
+  partida.notasUsuario = [];
+}

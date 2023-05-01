@@ -74,4 +74,20 @@ describe("generaSecuenciaMusical", () => {
     // Assert
     expect(resultado).toEqual(["verde", "azul"]);
   });
+
+  it("generaSecuenciaMusical: 4 => ['rojo', 'azul', 'amarillo', 'verde']", () => {
+    // Arrange
+    const numeroDeNotas = 4;
+
+    // Act
+    vi.spyOn(motorHelper, "generaTeclaAleatoria")
+      .mockReturnValueOnce("rojo")
+      .mockReturnValueOnce("azul")
+      .mockReturnValueOnce("amarillo")
+      .mockReturnValueOnce("verde");
+    const resultado = generaSecuenciaMusical(numeroDeNotas);
+
+    // Assert
+    expect(resultado).toEqual(["rojo", "azul", "amarillo", "verde"]);
+  });
 });

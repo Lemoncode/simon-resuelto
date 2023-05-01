@@ -1,6 +1,6 @@
 import { getSafeElementById } from "./lib/dom-helper";
 import { Partida } from "./modelo";
-import { partida } from "./motor";
+import { partida, arrancaPartida } from "./motor";
 
 const mostrarTablero = (partida: Partida) => {
   const simonDiv = getSafeElementById("simon");
@@ -15,6 +15,7 @@ export const inicializaAplicacion = () => {
 
   const btnEmpezar = getSafeElementById("btnEmpezar");
   btnEmpezar.addEventListener("click", () => {
-    // TODO
+    arrancaPartida(partida);
+    mostrarTablero(partida);
   });
 };
