@@ -7,11 +7,23 @@ var audioContext = new (window.AudioContext ||
 // Crear oscilador
 var oscillator = audioContext.createOscillator();
 
-// Iniciar oscilador
-oscillator.start();
+export const empiezaSecuenciaMusical = () => {
+  // Iniciar oscilador
+  oscillator.start();
+};
+
+export const terminaSecuenciaMusical = () => {
+  if (oscillator.numberOfOutputs > 0) {
+    oscillator.disconnect(audioContext.destination);
+  }
+};
 
 // Función para reproducir una nota de piano
 export function tocarNota(nota: Nota, duracionEnMilisegundos: number) {
+  if (audioContext.state === "suspended") {
+    audioContext.resume();
+  }
+
   // Ajustar frecuencia según la nota
   switch (nota) {
     case "DO":
@@ -32,7 +44,11 @@ export function tocarNota(nota: Nota, duracionEnMilisegundos: number) {
   oscillator.connect(audioContext.destination);
 
   // Detener oscilador después de 1 segundo
-  setTimeout(function () {
-    oscillator.disconnect(audioContext.destination);
-  }, duracionEnMilisegundos);
+  console.log(duracionEnMilisegundos);
+  //oscillator.stop(duracionEnMilisegundos);
+  /*setTimeout(function () {
+    if (oscillator.numberOfOutputs > 0) {
+      oscillator.disconnect(audioContext.destination);
+    }
+  }, duracionEnMilisegundos);*/
 }

@@ -1,4 +1,4 @@
-export const duracionNota = 500;
+export const duracionNota = 600;
 
 export type Tecla = "azul" | "rojo" | "verde" | "amarillo";
 

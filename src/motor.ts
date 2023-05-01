@@ -18,7 +18,7 @@ export const generaSecuenciaMusical = (numeroDeNotas: number): Tecla[] => {
 // TODO: añadir pruebas unitarias
 export const arrancaPartida = (partida: Partida) => {
   partida.estado = "jugando";
-  partida.notas = generaSecuenciaMusical(1);
+  partida.notas = generaSecuenciaMusical(4);
   partida.ronda = 1;
   partida.notasUsuario = [];
 }
