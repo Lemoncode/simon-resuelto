@@ -1,5 +1,7 @@
 import { getSafeElementById } from "./lib/dom-helper";
-import { Partida } from "./modelo";
+import { tocarNota } from "./lib/musica";
+import { ConvierteDeTeclaANota } from "./mapeador";
+import { Partida, duracionNota, Tecla } from "./modelo";
 import { partida, arrancaPartida } from "./motor";
 
 const mostrarTablero = (partida: Partida) => {
@@ -10,6 +12,14 @@ const mostrarTablero = (partida: Partida) => {
   btnEmpezar.style.display = partida.estado === "no_arrancada" ? "" : "none";
 };
 
+const ejecutaSecuenciaDeNotas = (teclas: Tecla[]) => {
+  for (let i = 0; i < teclas.length; i++) {
+    setTimeout(function () {
+      tocarNota(ConvierteDeTeclaANota(teclas[i]), duracionNota); // Esto va a dar un error
+    }, i * 500);
+  }
+};
+
 export const inicializaAplicacion = () => {
   mostrarTablero(partida);
 
@@ -17,5 +27,6 @@ export const inicializaAplicacion = () => {
   btnEmpezar.addEventListener("click", () => {
     arrancaPartida(partida);
     mostrarTablero(partida);
+    ejecutaSecuenciaDeNotas(partida.notas);
   });
 };

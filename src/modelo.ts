@@ -1,3 +1,5 @@
+export const duracionNota = 500;
+
 export type Tecla = "azul" | "rojo" | "verde" | "amarillo";
 
 type EstadoPartida = "no_arrancada" | "jugando" | "game_over";
